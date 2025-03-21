@@ -1,5 +1,3 @@
-Here's your refined README with clear step-by-step instructions and improved structure.  
-
 ---
 
 # To-Do Application (Java, JSP, Servlet) - MVC Model  
