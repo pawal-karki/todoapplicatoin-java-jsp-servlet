@@ -1,112 +1,101 @@
----
 
+
+```markdown
 # To-Do Application (Java, JSP, Servlet) - MVC Model  
 
 ## Overview  
-
-This project is a **To-Do List application** developed using **Java Servlets, JSP, and the Model-View-Controller (MVC)** architecture. It enables users to **add, update, delete, and view tasks** stored in a **MySQL database**.  
+This is a **simple To-Do application** built using **Java Servlets, JSP, and MySQL**, following the **MVC architecture**. It allows users to **add, view, and delete tasks**.  
 
 ## Prerequisites  
-
 Ensure you have the following installed:  
-
-- **Eclipse IDE** (preferably Eclipse IDE for Java EE Developers)  
-- **Apache Tomcat 9+** (tested with Tomcat 9)  
+- **Eclipse IDE** (for Java EE Developers)  
+- **Apache Tomcat 9+**  
 - **MySQL Database**  
-- **MySQL Connector/J** (JDBC driver for MySQL)  
-- **JDK 8 or later**
-- - **Dynamic Web Verion 5.0**  
+- **MySQL Connector/J** (JDBC driver)  
+- **JDK 8 or later**  
 
-## Project Setup in Eclipse  
+## Project Setup  
 
 ### 1. Clone the Repository  
 ```sh
 git clone https://github.com/pawal-karki/todoapplicatoin-java-jsp-servlet.git
 ```
 
-### 2. Open Project in Eclipse  
-- Open **Eclipse IDE**  
-- Navigate to **File** → **Import** → **Existing Projects into Workspace**  
-- Select the cloned project folder and click **Finish**  
+### 2. Import the Project in Eclipse  
+- Open **Eclipse** → **File** → **Import** → **Existing Projects into Workspace**  
+- Select the cloned folder and click **Finish**  
 
-### 3. Configure Build Path  
-- **Right-click** on the project → **Build Path** → **Configure Build Path**  
-- **Add JAR**: Select **MySQL Connector/J** (`mysql-connector-java-<version>.jar`)  
+### 3. Configure Project Settings  
+- **Set Dynamic Web Module to 5.0**  
+  - Right-click project → **Properties** → **Project Facets** → Set **Dynamic Web Module** to **5.0**  
+- **Add MySQL Connector/J**  
+  - Right-click project → **Build Path** → **Add External JARs** → Select `mysql-connector-java-<version>.jar`  
 
-### 4. Set Up Apache Tomcat  
+### 4. Configure Tomcat Server  
 - Go to **Window** → **Preferences** → **Server** → **Runtime Environments**  
-- Click **Add**, select **Apache Tomcat**, and set the Tomcat installation directory  
+- Click **Add**, select **Apache Tomcat**, and set the installation directory  
 
 ### 5. Set Up MySQL Database  
-Run the following SQL script to create the database and table:  
-
+Run the following SQL commands:  
 ```sql
-CREATE DATABASE tododb;
-USE tododb;
+CREATE DATABASE todo_database;
+USE todo_database;
 
-CREATE TABLE tasks (
+CREATE TABLE todo_table (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    completed BOOLEAN DEFAULT FALSE
+    completed BOOLEAN DEFAULT false
 );
 ```
 
 ### 6. Update Database Configuration  
-Edit `db.properties` (or update directly in `TaskDAO.java` if hardcoded):  
-
+Edit `db.properties` (or modify `TodoDAO.java`):  
 ```properties
-db.url=jdbc:mysql://localhost:3306/tododb
+db.url=jdbc:mysql://localhost:3306/todo_database
 db.user=root
 db.password=your_password
 ```
 
 ### 7. Run the Project  
-- **Right-click** on the project → **Run As** → **Run on Server**  
-- **Select Tomcat Server** and click **Finish**  
+- Right-click the project → **Run As** → **Run on Server**  
 - Open your browser and go to:  
   ```
   http://localhost:8080/todoapplicatoin-java-jsp-servlet/
   ```
 
 ## Features  
-
-✔ **Add new tasks**  
-✔ **Update task details**  
-✔ **Delete tasks**  
+✔ **Add tasks**  
 ✔ **View all tasks**  
+✔ **Delete tasks**  
 
-## Project Structure  
-
+## Folder Structure  
 ```
-/src/main/java/
-  ├── model/        # Data model classes (Task.java)
-  ├── dao/          # Database access layer (TaskDAO.java)
-  ├── controller/   # Servlet controllers (TaskServlet.java)
-/src/main/webapp/
-  ├── index.jsp     # Home page
-  ├── addTask.jsp   # Add new task
-  ├── editTask.jsp  # Edit existing task
-  ├── listTasks.jsp # View tasks
+TodoApplication/
+├── src/main/java/          
+│   ├── controller/    # Servlets (TaskServlet.java)
+│   ├── model/         # Business logic (Task.java, TaskDAO.java)
+├── src/main/webapp/        
+│   ├── WEB-INF/       # Config files
+│   ├── view/          # JSP files (add-task.jsp, list-tasks.jsp)
+│   └── index.jsp      # Home page
 ```
 
 ## Technologies Used  
-
 - **Java (JDK 8+)**  
 - **JSP & Servlets**  
 - **MySQL Database**  
 - **JDBC (MySQL Connector/J)**  
-- **Apache Tomcat Server**  
+- **Apache Tomcat 9+**  
 - **Eclipse IDE**  
 
 ## Contribution  
-
-Feel free to **fork** this repository and submit **pull requests** for improvements.  
+Feel free to fork this repo and submit pull requests.  
 
 ## License  
-
 This project is open-source and available under the **MIT License**.  
 
 ---
 
 **Happy Coding!** 🚀
+```
