@@ -96,6 +96,5 @@ Feel free to fork this repo and submit pull requests.
 This project is open-source and available under the **MIT License**.  
 
 ---
-
 **Happy Coding!** 🚀
 ```
